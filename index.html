@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast Power — Soluções de TI para empresas</title>
+<meta name="description" content="Gestão de TI, cabeamento estruturado, segurança e backup para empresas B2B. Mais de 20 anos prevenindo paradas de operação.">
+<link rel="preload" href="assets/fonts/Archivo-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>if(/nomotion/.test(location.search))document.documentElement.classList.add('nomotion');else document.documentElement.classList.add('js-reveal');</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 L18.4 5.6"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><path d="M3 12h2M19 12h2M12 3v2M12 19v2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.2c0 4.4-3 8.2-7 9.8-4-1.6-7-5.4-7-9.8V6z"/><path d="M9 12l2 2 4-4.5"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18h10.5a3.5 3.5 0 0 0 .6-6.95A5.5 5.5 0 0 0 7.4 9.3 4.35 4.35 0 0 0 7 18z"/><path d="M9 14.5h6M9 11.5h3"/></symbol>
+    <symbol id="i-cable" viewBox="0 0 24 24"><path d="M8 3v4M12 3v4M16 3v4"/><rect x="5" y="7" width="14" height="7" rx="1.5"/><path d="M9 14v2.5a3 3 0 0 0 6 0V14"/><path d="M12 19.5V21"/></symbol>
+    <symbol id="i-rack" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M4 9h16M4 15h16"/><circle cx="8" cy="6" r=".8" fill="currentColor" stroke="none"/><circle cx="8" cy="12" r=".8" fill="currentColor" stroke="none"/><circle cx="8" cy="18" r=".8" fill="currentColor" stroke="none"/><path d="M11 6h5M11 12h5M11 18h5"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M3 9.5a13 13 0 0 1 18 0"/><path d="M6.5 13a8 8 0 0 1 11 0"/><path d="M9.8 16.4a3.5 3.5 0 0 1 4.4 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5L16 14l4 1.5V19a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><circle cx="12" cy="12" r="3.5"/><path d="M12 6v2.5M12 15.5V18M6 12h2.5M15.5 12H18"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="14" r="4"/><path d="M11 11l8-8M15 7l2.5 2.5M17.5 4.5L20 7"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1.5"/><rect x="10" y="10" width="4" height="4" rx=".5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 16v-4M11 16V8M16 16v-6"/><path d="M4 8l5-3 5 2 6-4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5A5 5 0 0 1 21 19"/></symbol>
+    <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.5 4.5a4.5 4.5 0 0 0-5.8 5.6L3 15.8 6.2 19l5.7-5.7a4.5 4.5 0 0 0 5.6-5.8l-2.6 2.6-2.3-.6-.6-2.3z"/></symbol>
+    <symbol id="i-hospital" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="17" rx="1.5"/><path d="M12 8v6M9 11h6M9 21v-4h6v4"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1.2"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10.5 21v-3h3v3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></symbol>
+    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 4 12 2.5-6h5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 10h16M8 3v4M16 3v4"/><circle cx="12" cy="15" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></symbol>
+  </defs>
+</svg>
+
+<header class="navbar">
+  <div class="container navbar__inner">
+    <a href="#" class="logo">FAST<span>POWER</span></a>
+    <nav class="nav-links">
+      <a href="#solucoes">Soluções</a>
+      <a href="#como-atuamos">Como atuamos</a>
+      <a href="#cases">Cases</a>
+      <a href="#contato" class="btn btn--sm btn--primary">Agendar visita técnica</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================================================================== 1ª DOBRA — HERO -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <svg class="hero__svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="ribShade" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0.00" stop-color="#000000" stop-opacity="0.80"/>
+            <stop offset="0.10" stop-color="#000000" stop-opacity="0.44"/>
+            <stop offset="0.30" stop-color="#000000" stop-opacity="0.06"/>
+            <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.12"/>
+            <stop offset="0.52" stop-color="#ffffff" stop-opacity="0.20"/>
+            <stop offset="0.60" stop-color="#ffffff" stop-opacity="0.06"/>
+            <stop offset="0.78" stop-color="#000000" stop-opacity="0.28"/>
+            <stop offset="1.00" stop-color="#000000" stop-opacity="0.80"/>
+          </linearGradient>
+          <pattern id="flute" class="rib-pattern" width="17" height="17" patternUnits="userSpaceOnUse">
+            <rect width="17" height="17" fill="url(#ribShade)"/>
+          </pattern>
+          <linearGradient id="macroWaveGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0.00" stop-color="#000000" stop-opacity="0.22"/>
+            <stop offset="0.25" stop-color="#ffffff" stop-opacity="0.05"/>
+            <stop offset="0.50" stop-color="#000000" stop-opacity="0.18"/>
+            <stop offset="0.75" stop-color="#ffffff" stop-opacity="0.04"/>
+            <stop offset="1.00" stop-color="#000000" stop-opacity="0.22"/>
+          </linearGradient>
+          <pattern id="macroWave" class="rib-pattern" width="163" height="163" patternUnits="userSpaceOnUse">
+            <rect width="163" height="163" fill="url(#macroWaveGrad)"/>
+          </pattern>
+          <linearGradient id="ribLitGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0.00" stop-color="#FF8C9E" stop-opacity="0"/>
+            <stop offset="0.30" stop-color="#FF96A8" stop-opacity="0.10"/>
+            <stop offset="0.52" stop-color="#FFE4EA" stop-opacity="0.92"/>
+            <stop offset="0.68" stop-color="#FFAAB9" stop-opacity="0.16"/>
+            <stop offset="1.00" stop-color="#FF8C9E" stop-opacity="0"/>
+          </linearGradient>
+          <pattern id="litFlute" class="rib-pattern" width="17" height="17" patternUnits="userSpaceOnUse">
+            <rect width="17" height="17" fill="url(#ribLitGrad)"/>
+          </pattern>
+          <radialGradient id="litFade">
+            <stop offset="0.00" stop-color="#ffffff" stop-opacity="1"/>
+            <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.48"/>
+            <stop offset="1.00" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+          <mask id="litMask"><ellipse id="litSpot" cx="1020" cy="300" rx="470" ry="470" fill="url(#litFade)"/></mask>
+          <radialGradient id="lightField" cx="50%" cy="50%" r="50%">
+            <stop offset="0.00" stop-color="#FF4A5E" stop-opacity="1"/>
+            <stop offset="0.14" stop-color="#EE2B43" stop-opacity="0.98"/>
+            <stop offset="0.30" stop-color="#D01F37" stop-opacity="0.94"/>
+            <stop offset="0.46" stop-color="#C9273A" stop-opacity="0.86"/>
+            <stop offset="0.62" stop-color="#A81F3C" stop-opacity="0.62"/>
+            <stop offset="0.78" stop-color="#7E1838" stop-opacity="0.36"/>
+            <stop offset="0.92" stop-color="#5A1129" stop-opacity="0.14"/>
+            <stop offset="1.00" stop-color="#3d0c1c" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="hotCore" cx="50%" cy="50%" r="50%">
+            <stop offset="0.00" stop-color="#FF8A97" stop-opacity="0.85"/>
+            <stop offset="0.45" stop-color="#E3465B" stop-opacity="0.35"/>
+            <stop offset="1.00" stop-color="#C9273A" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="topFall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0.00" stop-color="#ffffff" stop-opacity="0.07"/>
+            <stop offset="0.28" stop-color="#000000" stop-opacity="0"/>
+            <stop offset="0.72" stop-color="#000000" stop-opacity="0.28"/>
+            <stop offset="1.00" stop-color="#000000" stop-opacity="0.72"/>
+          </linearGradient>
+          <radialGradient id="vignette" cx="66%" cy="28%" r="86%">
+            <stop offset="0.00" stop-color="#000000" stop-opacity="0"/>
+            <stop offset="0.48" stop-color="#000000" stop-opacity="0.08"/>
+            <stop offset="0.74" stop-color="#000000" stop-opacity="0.46"/>
+            <stop offset="1.00" stop-color="#000000" stop-opacity="0.92"/>
+          </radialGradient>
+          <pattern id="perf" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="1.7" fill="#D0D1CE" fill-opacity="0.10"/></pattern>
+          <radialGradient id="perfMaskGrad"><stop offset="0" stop-color="#ffffff" stop-opacity="0.7"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+          <mask id="perfMask"><ellipse cx="270" cy="830" rx="420" ry="280" fill="url(#perfMaskGrad)"/></mask>
+          <linearGradient id="pulseGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0.00" stop-color="#FFC8D4" stop-opacity="0"/>
+            <stop offset="0.45" stop-color="#FFE2E9" stop-opacity="0.95"/>
+            <stop offset="0.70" stop-color="#FF96AA" stop-opacity="0.55"/>
+            <stop offset="1.00" stop-color="#FF96AA" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="grain" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" result="noise"/>
+            <feColorMatrix in="noise" type="saturate" values="0"/>
+          </filter>
+          <filter id="bigBlur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="55"/></filter>
+        </defs>
+
+        <rect width="1600" height="1000" fill="#0a0508"/>
+        <ellipse cx="1060" cy="440" rx="1150" ry="940" fill="url(#lightField)" opacity="0.42"/>
+        <g class="light-drift"><ellipse cx="1080" cy="270" rx="900" ry="720" fill="url(#lightField)"/></g>
+        <g class="core-drift"><ellipse cx="1090" cy="215" rx="420" ry="300" fill="url(#hotCore)"/></g>
+
+        <g stroke="#E9D9DC" stroke-opacity="0.62" fill="none" stroke-width="2">
+          <path d="M210 812 L330 726 L470 764 L580 664"/><path d="M330 726 L364 604 L470 764"/><path d="M364 604 L500 570 L580 664"/><path d="M210 812 L364 604"/><path d="M470 764 L616 800"/>
+        </g>
+        <g>
+          <circle cx="210" cy="812" r="6" fill="#E9D9DC" fill-opacity="0.78"/><circle cx="330" cy="726" r="8" fill="#FF6274" fill-opacity="0.95"/><circle cx="470" cy="764" r="6" fill="#E9D9DC" fill-opacity="0.78"/><circle cx="364" cy="604" r="8" fill="#FF6274" fill-opacity="0.85"/><circle cx="500" cy="570" r="5.5" fill="#E9D9DC" fill-opacity="0.7"/><circle cx="580" cy="664" r="6" fill="#E9D9DC" fill-opacity="0.78"/><circle cx="616" cy="800" r="5.5" fill="#E9D9DC" fill-opacity="0.66"/>
+        </g>
+        <g transform="translate(986,792)" stroke="#E9D9DC" stroke-opacity="0.58" fill="none">
+          <rect x="0" y="0" width="470" height="62" rx="7" stroke-width="1.6"/><path d="M0 31 H470" stroke-opacity="0.28"/>
+          <g stroke-width="1.3">
+            <rect x="18" y="10" width="24" height="17" rx="2.5"/><rect x="50" y="10" width="24" height="17" rx="2.5"/><rect x="82" y="10" width="24" height="17" rx="2.5"/><rect x="114" y="10" width="24" height="17" rx="2.5"/><rect x="146" y="10" width="24" height="17" rx="2.5"/><rect x="178" y="10" width="24" height="17" rx="2.5"/><rect x="210" y="10" width="24" height="17" rx="2.5"/><rect x="242" y="10" width="24" height="17" rx="2.5"/><rect x="274" y="10" width="24" height="17" rx="2.5"/><rect x="306" y="10" width="24" height="17" rx="2.5"/><rect x="338" y="10" width="24" height="17" rx="2.5"/><rect x="370" y="10" width="24" height="17" rx="2.5"/><rect x="402" y="10" width="24" height="17" rx="2.5"/><rect x="434" y="10" width="20" height="17" rx="2.5"/>
+            <rect x="18" y="35" width="24" height="17" rx="2.5"/><rect x="50" y="35" width="24" height="17" rx="2.5"/><rect x="82" y="35" width="24" height="17" rx="2.5"/><rect x="114" y="35" width="24" height="17" rx="2.5"/><rect x="146" y="35" width="24" height="17" rx="2.5"/><rect x="178" y="35" width="24" height="17" rx="2.5"/><rect x="210" y="35" width="24" height="17" rx="2.5"/><rect x="242" y="35" width="24" height="17" rx="2.5"/><rect x="274" y="35" width="24" height="17" rx="2.5"/><rect x="306" y="35" width="24" height="17" rx="2.5"/><rect x="338" y="35" width="24" height="17" rx="2.5"/><rect x="370" y="35" width="24" height="17" rx="2.5"/><rect x="402" y="35" width="24" height="17" rx="2.5"/><rect x="434" y="35" width="20" height="17" rx="2.5"/>
+          </g>
+          <g stroke="none"><rect x="50" y="10" width="24" height="17" rx="2.5" fill="#FF6274" fill-opacity="0.9"/><rect x="178" y="35" width="24" height="17" rx="2.5" fill="#FF6274" fill-opacity="0.8"/><rect x="306" y="10" width="24" height="17" rx="2.5" fill="#FF6274" fill-opacity="0.7"/></g>
+        </g>
+
+        <rect width="1600" height="1000" fill="url(#flute)"/>
+        <rect width="1600" height="1000" fill="url(#macroWave)"/>
+        <rect width="1600" height="1000" fill="url(#litFlute)" mask="url(#litMask)" id="litLayer" opacity="0.5"/>
+        <ellipse class="bloom-breathe" cx="1090" cy="230" rx="380" ry="250" fill="#F4566B" filter="url(#bigBlur)"/>
+        <g id="pulseLayer"></g>
+        <rect width="1600" height="1000" fill="url(#perf)" mask="url(#perfMask)"/>
+        <rect width="1600" height="1000" fill="url(#topFall)"/>
+        <rect width="1600" height="1000" fill="url(#vignette)"/>
+        <rect width="1600" height="1000" filter="url(#grain)" opacity="0.13"/>
+      </svg>
+
+      <div class="hero__layer hero__layer--aurora"><div class="hero__aurora"></div></div>
+      <div class="hero__beam hero__beam--1"></div>
+      <div class="hero__beam hero__beam--2"></div>
+      <div class="hero__layer hero__layer--glow"><div class="hero__glow-bottom"></div></div>
+      <div class="hero__scrim"></div>
+    </div>
+
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__title"><span class="t-thin">Reduza custos de parada</span> <span class="t-bold">e ganhe previsibilidade na sua infraestrutura.</span></h1>
+        <p class="hero__subtitle">Gestão de TI que resolve o problema antes dele derrubar a sua operação.</p>
+
+        <ul class="signals" aria-label="O que a Fast Power entrega">
+          <li class="signal"><span class="signal__icon"><svg><use href="#i-radar"/></svg></span><span>Monitoramento ativo <b>24/7</b></span></li>
+          <li class="signal"><span class="signal__icon"><svg><use href="#i-cable"/></svg></span><span>Cabeamento <b>certificado</b></span></li>
+          <li class="signal"><span class="signal__icon"><svg><use href="#i-shield"/></svg></span><span>Backup e <b>segurança</b></span></li>
+        </ul>
+      </div>
+
+      <div class="glass glass--form hero__form" id="contato" data-light>
+        <div class="glass__sheen" aria-hidden="true"></div>
+        <h2 class="form-title">Agende uma visita técnica</h2>
+        <p class="form-subtitle">Entendemos o seu cenário operacional e desenhamos uma proposta sob medida.</p>
+        <form class="form">
+          <div class="form__field"><label for="nome">Nome</label><input type="text" id="nome" name="nome" placeholder="Seu nome completo" required autocomplete="name"></div>
+          <div class="form__field"><label for="email">E-mail</label><input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email"></div>
+          <div class="form__field"><label for="telefone">Telefone</label><input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required autocomplete="tel"></div>
+          <div class="form__field"><label for="necessidade">O que você precisa</label>
+            <div class="select-wrap"><select id="necessidade" name="necessidade">
+              <option value="">Selecione uma opção</option>
+              <option value="gestao">Gestão de TI contínua</option>
+              <option value="seguranca">Segurança e backup</option>
+              <option value="trocar">Trocar de fornecedor</option>
+              <option value="avaliacao">Quero uma avaliação da minha TI</option>
+            </select></div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block">Quero agendar uma visita técnica <svg class="btn__icon"><use href="#i-arrow"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== 2ª DOBRA — PROVA RÁPIDA -->
+  <section class="proof">
+    <div class="container">
+      <div class="proof__bar glass glass--light reveal" data-light>
+        <div class="proof__item">
+          <span class="proof__value"><span class="count" data-count="20" data-prefix="+">+20</span></span>
+          <span class="proof__label">anos gerindo TI de empresas B2B</span>
+        </div>
+        <div class="proof__item">
+          <span class="proof__value proof__value--pending">[X]</span>
+          <span class="proof__label">empresas atendidas</span>
+        </div>
+        <div class="proof__item">
+          <span class="proof__value"><span class="count" data-count="100" data-suffix="%">100%</span></span>
+          <span class="proof__label">Garantia, validação e testes antes da entrega</span>
+        </div>
+        <a href="#contato" class="btn btn--outline proof__cta">Quero falar com um especialista</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== 3ª DOBRA — SOLUÇÕES -->
+  <section class="solutions section--light" id="solucoes">
+    <div class="section__texture" aria-hidden="true"></div>
+    <div class="container solutions__grid">
+      <div class="solutions__content">
+        <h2 class="section-title reveal"><span class="t-thin">Proteja os dados e a continuidade da empresa</span> <span class="t-bold">com uma gestão de TI ativa o mês inteiro.</span></h2>
+
+        <ul class="sol-list">
+          <li class="sol-card sol-card--featured reveal" data-light>
+            <div class="compare__glow" aria-hidden="true"></div>
+            <span class="sol-card__icon"><svg><use href="#i-radar"/></svg></span>
+            <div>
+              <h3 class="sol-card__title">Monitoramento contínuo</h3>
+              <p class="sol-card__text">Agentes instalados em suas máquinas abrem chamados automaticamente ao menor sinal de falha, prevenindo paradas.</p>
+            </div>
+          </li>
+          <li class="sol-card glass glass--light reveal" data-light>
+            <span class="sol-card__icon"><svg><use href="#i-shield"/></svg></span>
+            <div>
+              <h3 class="sol-card__title">Segurança e backup</h3>
+              <p class="sol-card__text">Blindamos seus dados corporativos contra perdas, ataques e falhas físicas, garantindo a continuidade do seu negócio.</p>
+            </div>
+          </li>
+          <li class="sol-card glass glass--light reveal" data-light>
+            <span class="sol-card__icon"><svg><use href="#i-cloud"/></svg></span>
+            <div>
+              <h3 class="sol-card__title">Gestão de ativos e nuvem</h3>
+              <p class="sol-card__text">Cuidamos da saúde dos seus servidores, licenciamentos, telefonia em nuvem e migrações estruturadas.</p>
+            </div>
+          </li>
+        </ul>
+
+        <a href="#contato" class="btn btn--primary reveal">Saber mais <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <figure class="photo-card photo-card--tall reveal" data-light>
+        <img src="assets/img/rack-cabos-vermelhos.jpg" alt="Rack de rede com cabeamento organizado e identificado" loading="lazy" width="1600" height="1067">
+        <div class="photo-card__mask" aria-hidden="true"></div>
+        <figcaption class="photo-card__overlay glass" data-light>
+          <div class="glass__sheen" aria-hidden="true"></div>
+          <span class="status"><span class="status__dot"></span>Agente ativo</span>
+          <p class="photo-card__lead">Chamado aberto automaticamente ao menor sinal de falha.</p>
+          <ul class="tags">
+            <li class="tag"><svg><use href="#i-rack"/></svg>Rack organizado</li>
+            <li class="tag"><svg><use href="#i-wifi"/></svg>Wi-Fi</li>
+            <li class="tag"><svg><use href="#i-db"/></svg>Backup</li>
+          </ul>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================================================================== 4ª DOBRA — COMPARATIVO -->
+  <section class="compare section--dark">
+    <div class="compare__photo" aria-hidden="true"><img src="assets/img/servidor-hardware.jpg" alt="" loading="lazy" width="1400" height="935"></div>
+    <div class="section__ribs" aria-hidden="true"></div>
+    <div class="container">
+      <h2 class="section-title section-title--center reveal"><span class="t-thin">Depender de consertos emergenciais custa</span> <span class="t-bold">até 3x mais do que uma infraestrutura bem planejada.</span></h2>
+
+      <div class="compare__grid reveal">
+        <div class="compare__col compare__col--before glass" data-light>
+          <div class="glass__sheen" aria-hidden="true"></div>
+          <h3 class="compare__head"><svg><use href="#i-alert"/></svg>Cenário atual</h3>
+          <ul class="compare__list">
+            <li><svg><use href="#i-clock"/></svg><div><h4>Orçamento imprevisível</h4><p>Gastos emergenciais altíssimos para trocar equipamentos queimados ou refazer redes mal dimensionadas.</p></div></li>
+            <li><svg><use href="#i-users"/></svg><div><h4>Prejuízo com equipe ociosa</h4><p>Você paga a hora de funcionários que não conseguem trabalhar porque o sistema travou.</p></div></li>
+            <li><svg><use href="#i-db"/></svg><div><h4>Risco de perda de dados</h4><p>Sem estruturação e backup, uma simples queda de energia pode apagar anos de histórico de dados.</p></div></li>
+            <li><svg><use href="#i-wrench"/></svg><div><h4>Soluções provisórias</h4><p>O técnico conserta o sintoma rápido, mas o problema raiz volta a derrubar a rede na semana seguinte.</p></div></li>
+          </ul>
+        </div>
+
+        <div class="compare__col compare__col--after" data-light>
+          <div class="compare__glow" aria-hidden="true"></div>
+          <h3 class="compare__head"><svg><use href="#i-check"/></svg>Com a Fast Power</h3>
+          <ul class="compare__list">
+            <li><svg><use href="#i-chart"/></svg><div><h4>Previsibilidade financeira</h4><p>Planejamento estruturado e fim das “surpresas” no fluxo de caixa no fim do mês.</p></div></li>
+            <li><svg><use href="#i-pulse"/></svg><div><h4>Produtividade contínua</h4><p>Monitoramento constante para garantir que a rede suporte a operação 100% do tempo.</p></div></li>
+            <li><svg><use href="#i-shield"/></svg><div><h4>Segurança e continuidade</h4><p>Ambiente homologado, organizado e preparado para mitigar qualquer risco físico ou lógico.</p></div></li>
+            <li><svg><use href="#i-cable"/></svg><div><h4>Resolução definitiva</h4><p>Infraestrutura documentada, cabeamento certificado e fim do retrabalho.</p></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-cta reveal">
+        <a href="#contato" class="btn btn--primary">Solicitar um orçamento <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== 5ª DOBRA — COMO ATUAMOS -->
+  <section class="process section--light" id="como-atuamos">
+    <div class="section__texture" aria-hidden="true"></div>
+    <div class="container">
+      <div class="process__head reveal">
+        <h2 class="section-title"><span class="t-thin">Como</span> <span class="t-bold">atuamos?</span></h2>
+        <p class="process__lead">Cinco etapas, da primeira ligação à gestão contínua — sem parar a sua operação em nenhuma delas.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step glass glass--light reveal" data-light>
+          <span class="step__num">01</span>
+          <span class="step__icon"><svg><use href="#i-phone"/></svg></span>
+          <h3 class="step__title">Alinhamento de cenário</h3>
+          <p class="step__text">Ligação direta com nossa diretoria para entender os gargalos da sua rotina operacional.</p>
+        </li>
+        <li class="step glass glass--light reveal" data-light>
+          <span class="step__num">02</span>
+          <span class="step__icon"><svg><use href="#i-scan"/></svg></span>
+          <h3 class="step__title">Mapeamento de risco</h3>
+          <p class="step__text">Avaliamos sua estrutura atual e apresentamos uma proposta focada em mitigar gargalos operacionais e financeiros.</p>
+        </li>
+        <li class="step glass glass--light reveal" data-light>
+          <span class="step__num">03</span>
+          <span class="step__icon"><svg><use href="#i-key"/></svg></span>
+          <h3 class="step__title">Transição transparente</h3>
+          <p class="step__text">Mapeamos senhas, acessos e documentamos toda a sua rede de forma organizada e segura.</p>
+        </li>
+        <li class="step step--featured reveal" data-light>
+          <div class="compare__glow" aria-hidden="true"></div>
+          <span class="step__num">04</span>
+          <span class="step__icon"><svg><use href="#i-chip"/></svg></span>
+          <h3 class="step__title">Implantação do monitoramento</h3>
+          <p class="step__text">Instalamos nossos agentes de segurança e prevenção nos seus equipamentos, de forma silenciosa.</p>
+        </li>
+        <li class="step glass glass--light reveal" data-light>
+          <span class="step__num">05</span>
+          <span class="step__icon"><svg><use href="#i-chart"/></svg></span>
+          <h3 class="step__title">Gestão contínua</h3>
+          <p class="step__text">Sua empresa passa a contar com suporte prioritário, manutenção preventiva e relatórios de desempenho.</p>
+        </li>
+        <li class="step step--photo reveal">
+          <img src="assets/img/projeto-mesa.jpg" alt="Projeto de infraestrutura sendo desenhado sobre a mesa" loading="lazy" width="1400" height="933">
+          <div class="photo-card__mask" aria-hidden="true"></div>
+          <a href="#contato" class="step__photo-cta">Quero agendar uma conversa <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
+        </li>
+      </ol>
+      <div class="steps__dots" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================== 6ª DOBRA — CASES -->
+  <section class="cases section--dark" id="cases">
+    <div class="section__ribs section__ribs--soft" aria-hidden="true"></div>
+    <div class="container">
+      <h2 class="section-title section-title--center reveal"><span class="t-thin">Onde o nosso planejamento se transforma</span> <span class="t-bold">em resultado da sua empresa.</span></h2>
+
+      <!-- CASE 01 -->
+      <article class="case reveal">
+        <figure class="case__photo photo-card" data-light>
+          <img src="assets/img/hospital-recepcao.jpg" alt="Recepção de hospital" loading="lazy" width="1400" height="953">
+          <div class="photo-card__mask" aria-hidden="true"></div>
+          <figcaption class="case__client"><svg><use href="#i-hospital"/></svg>Hospital Santa Cruz</figcaption>
+          <span class="case__big">16<small>leitos</small></span>
+        </figure>
+
+        <div class="case__body glass" data-light>
+          <div class="glass__sheen" aria-hidden="true"></div>
+          <h3 class="case__title">16 leitos hospitalares modernizados em 30 dias sem parar o atendimento.</h3>
+          <ul class="chips">
+            <li class="chip">16 leitos entregues</li>
+            <li class="chip">30 dias de execução</li>
+            <li class="chip">Rede + CFTV IP + Chamada de Enfermagem</li>
+            <li class="chip">Execução em regime de urgência durante a pandemia</li>
+          </ul>
+          <div class="case__split">
+            <div class="case__col"><h4 class="case__label">O desafio</h4><p>Necessidade urgente de converter leitos convencionais em atendimento de emergência na pandemia, operando em ambiente de alto risco e sem interromper a rotina hospitalar.</p></div>
+            <div class="case__col case__col--solution"><h4 class="case__label">A solução Fast Power</h4><p>Mobilização de equipe em turnos noturnos e horários especiais, executando simultaneamente cabeamento, CFTV e chamadas de enfermagem sob rígidos protocolos de biossegurança.</p></div>
+          </div>
+          <p class="case__note">Operamos com biossegurança e capacidade de atuar em ambientes de alta sensibilidade sem comprometer o fluxo de atendimento do hospital e garantindo 100% de segurança à equipe de execução. Mesmo diante de um cenário de extrema pressão, prazos reduzidos e dos desafios impostos pela pandemia, o projeto foi concluído com sucesso e dentro do prazo necessário para que o hospital pudesse ampliar sua capacidade de atendimento.</p>
+          <details class="case__scope">
+            <summary><svg><use href="#i-plus"/></svg>O escopo do projeto incluiu</summary>
+            <ul>
+              <li>Cabeamento estruturado de rede</li>
+              <li>Implantação de CFTV IP</li>
+              <li>Infraestrutura para o sistema de chamada de enfermagem</li>
+              <li>Organização e adequação dos pontos necessários para os novos leitos</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
+      <!-- CASE 02 -->
+      <article class="case case--flip reveal">
+        <figure class="case__photo photo-card" data-light>
+          <img src="assets/img/patch-panel.jpg" alt="Patch panel com portas numeradas e cabos identificados" loading="lazy" width="1400" height="933">
+          <div class="photo-card__mask" aria-hidden="true"></div>
+          <figcaption class="case__client"><svg><use href="#i-truck"/></svg>Parrocha Logística</figcaption>
+                  </figure>
+
+        <div class="case__body glass" data-light>
+          <div class="glass__sheen" aria-hidden="true"></div>
+          <h3 class="case__title">Layout flexível e rede de alta performance com modernização invisível.</h3>
+          <div class="case__split">
+            <div class="case__col"><h4 class="case__label">O desafio</h4><p>Necessidade de reorganizar o escritório e preparar a rede para expansões futuras, com o risco de paralisação e perda de produtividade durante a obra.</p></div>
+            <div class="case__col case__col--solution"><h4 class="case__label">A solução Fast Power</h4><p>Cabeamento estruturado modular planejado para execução contínua, permitindo total funcionalidade da empresa durante a instalação.</p></div>
+          </div>
+          <p class="case__note">Implementamos uma infraestrutura inteligente que permite converter pontos de telefonia em pontos de rede de forma simples, adaptando o espaço a qualquer nova mudança de layout.</p>
+          <details class="case__scope">
+            <summary><svg><use href="#i-plus"/></svg>O escopo do projeto incluiu</summary>
+            <ul>
+              <li>Projeto de cabeamento estruturado</li>
+              <li>Reorganização da infraestrutura de rede</li>
+              <li>Flexibilidade para alteração dos pontos de telefonia e rede</li>
+              <li>Planejamento para futuras mudanças de layout</li>
+              <li>Execução com mínimo impacto na operação</li>
+              <li>Melhor aproveitamento da infraestrutura existente</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
+      <!-- CASE 03 -->
+      <article class="case reveal">
+        <figure class="case__photo photo-card" data-light>
+          <img src="assets/img/escritorio.jpg" alt="Escritório em operação" loading="lazy" width="1400" height="935">
+          <div class="photo-card__mask" aria-hidden="true"></div>
+          <figcaption class="case__client"><svg><use href="#i-building"/></svg>Sim Imóveis</figcaption>
+          <span class="case__big">4<small>dias</small></span>
+        </figure>
+
+        <div class="case__body glass" data-light>
+          <div class="glass__sheen" aria-hidden="true"></div>
+          <h3 class="case__title">Mudança de sede em 4 dias, sem parar a operação.</h3>
+          <ul class="chips"><li class="chip">4 dias para realizar toda a mudança</li></ul>
+          <div class="case__split">
+            <div class="case__col"><h4 class="case__label">O desafio</h4><p>Transferir toda a operação para um novo endereço em um prazo crítico de 4 dias, expandindo a capacidade de rede para uma equipe maior sem interromper o negócio.</p></div>
+            <div class="case__col case__col--solution"><h4 class="case__label">A solução Fast Power</h4><p>Mapeamento prévio do ambiente antigo, desmontagem organizada e preparação simultânea da nova sede (cabeamento, rack e Wi-Fi), com suporte presencial no go-live.</p></div>
+          </div>
+          <p class="case__note">Todo o planejamento logístico e estrutural permitiu que a equipe mudasse de espaço físico sem sentir qualquer diferença ou interrupção nos sistemas no primeiro dia de operação.</p>
+          <details class="case__scope">
+            <summary><svg><use href="#i-plus"/></svg>O escopo do projeto incluiu</summary>
+            <ul>
+              <li>Ampliação dos pontos de rede</li>
+              <li>Organização e estruturação do rack</li>
+              <li>Estruturação lógica da rede</li>
+              <li>Ampliação da infraestrutura de Wi-Fi</li>
+              <li>Preparação dos equipamentos</li>
+              <li>Organização e gerenciamento da nova infraestrutura</li>
+              <li>Instalação e configuração dos equipamentos no novo ambiente</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
+      <div class="section-cta reveal">
+        <a href="#contato" class="btn btn--primary">Quero falar com um especialista <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== 7ª DOBRA — QUEM CONFIA -->
+  <section class="clients section--light">
+    <div class="section__texture" aria-hidden="true"></div>
+    <div class="container">
+      <h2 class="section-title section-title--center reveal"><span class="t-thin">Temos a confiança de</span> <span class="t-bold">grandes empresas</span></h2>
+    </div>
+
+    <div class="marquee" aria-label="Clientes atendidos pela Fast Power">
+      <div class="marquee__track">
+        <span class="marquee__item">Parrocha Logística</span><span class="marquee__item">Romano Advogados</span><span class="marquee__item">Hospital Mercês</span><span class="marquee__item">Hospital Firenze</span><span class="marquee__item">Hospital Santa Cruz</span><span class="marquee__item">Grupo Skim</span><span class="marquee__item">Oxi Skin</span><span class="marquee__item">Instituto Global Saúde</span><span class="marquee__item">Dra. Anne Groth</span><span class="marquee__item">Plasticorp — Dr. Ronald Rippel</span><span class="marquee__item">Dr. Paulo Bettes</span><span class="marquee__item">Sindicato dos Contabilistas de Curitiba</span><span class="marquee__item">Lesto Coworking</span><span class="marquee__item">Crealle Comunicação Visual</span>
+      </div>
+      <div class="marquee__track" aria-hidden="true">
+        <span class="marquee__item">Parrocha Logística</span><span class="marquee__item">Romano Advogados</span><span class="marquee__item">Hospital Mercês</span><span class="marquee__item">Hospital Firenze</span><span class="marquee__item">Hospital Santa Cruz</span><span class="marquee__item">Grupo Skim</span><span class="marquee__item">Oxi Skin</span><span class="marquee__item">Instituto Global Saúde</span><span class="marquee__item">Dra. Anne Groth</span><span class="marquee__item">Plasticorp — Dr. Ronald Rippel</span><span class="marquee__item">Dr. Paulo Bettes</span><span class="marquee__item">Sindicato dos Contabilistas de Curitiba</span><span class="marquee__item">Lesto Coworking</span><span class="marquee__item">Crealle Comunicação Visual</span>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="section-cta reveal">
+        <a href="#contato-final" class="btn btn--primary">Falar com um especialista <svg class="btn__icon"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== 8ª DOBRA — FORMULÁRIO FINAL -->
+  <section class="apply section--dark" id="contato-final">
+    <div class="apply__photo" aria-hidden="true"><img src="assets/img/datacenter-rack.jpg" alt="" loading="lazy" width="1600" height="898"></div>
+    <div class="section__ribs" aria-hidden="true"></div>
+    <div class="apply__scrim" aria-hidden="true"></div>
+    <div class="container apply__grid">
+      <div class="apply__content reveal">
+        <h2 class="section-title"><span class="t-thin">Monitoramento e suporte contínuos para a</span> <span class="t-bold">sua operação não parar no pior momento.</span></h2>
+        <p class="apply__lead">Preencha o formulário e agende sua visita técnica. A gente vai até você, entende o que precisa e monta o orçamento.</p>
+        <ul class="signals signals--stack">
+          <li class="signal"><span class="signal__icon"><svg><use href="#i-calendar"/></svg></span><span>Visita técnica <b>presencial</b></span></li>
+          <li class="signal"><span class="signal__icon"><svg><use href="#i-scan"/></svg></span><span>Proposta sob medida para o <b>seu cenário</b></span></li>
+        </ul>
+      </div>
+
+      <div class="glass glass--form apply__form reveal" data-light>
+        <div class="glass__sheen" aria-hidden="true"></div>
+        <form class="form">
+          <div class="form__field"><label for="nome2">Nome</label><input type="text" id="nome2" name="nome" placeholder="Seu nome completo" required autocomplete="name"></div>
+          <div class="form__field"><label for="email2">E-mail</label><input type="email" id="email2" name="email" placeholder="seu@email.com" required autocomplete="email"></div>
+          <div class="form__field"><label for="telefone2">Telefone</label><input type="tel" id="telefone2" name="telefone" placeholder="(00) 00000-0000" required autocomplete="tel"></div>
+          <div class="form__field"><label for="necessidade2">O que você precisa</label>
+            <div class="select-wrap"><select id="necessidade2" name="necessidade">
+              <option value="">Selecione uma opção</option>
+              <option value="cabeamento">Cabeamento</option>
+              <option value="wifi">Ampliar Wi-Fi</option>
+              <option value="rack">Organizar rack</option>
+              <option value="ajuda">Não sei, preciso de ajuda</option>
+            </select></div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block">Quero agendar uma visita técnica <svg class="btn__icon"><use href="#i-arrow"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#" class="logo">FAST<span>POWER</span></a>
+    <p class="footer__text">Gestão de TI e infraestrutura para empresas B2B.</p>
+    <p class="footer__copy">© <span id="year">2026</span> Fast Power. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/hero-motion.js"></script>
+</body>
+</html>

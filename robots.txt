@@ -1,0 +1,3 @@
+# Preview de aprovação — não indexar até o site ir para o servidor final.
+User-agent: *
+Disallow: /
