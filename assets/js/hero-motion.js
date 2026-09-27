@@ -33,6 +33,9 @@
   let lastMove = -Infinity;
   let rafId = null;
   let onScreen = true;
+  let lastLit = 0;
+  let litOp = 0.5;
+  const litAt = { x: 1020, y: 300 };
 
   const drift = (t, a, b, c, phase) =>
     Math.sin(t * a + phase) * 0.60 +
@@ -92,31 +95,34 @@
     s.setProperty('--mx', smooth.x.toFixed(4));
     s.setProperty('--my', smooth.y.toFixed(4));
 
-    const spin = t * 9 + drift(t, 0.061, 0.027, 0.011, 1.2) * 34;
-    s.setProperty('--spin', spin.toFixed(2) + 'deg');
-
     const pulse = 0.78 + (drift(t, 0.089, 0.037, 0.016, 3.6) + 1) * 0.07;
     s.setProperty('--glow-pulse', pulse.toFixed(3));
 
     // ---- as próprias linhas reagem: o ângulo inclina de leve na direção
     // do cursor, mais uma oscilação orgânica. Amplitude pequena de propósito.
-    const angle = BASE_ANGLE
-      + smooth.x * 2.4
-      + drift(t, 0.053, 0.023, 0.009, 5.2) * 1.4;
+    // O ângulo das ripas NÃO é mais reescrito por quadro. Mexer em
+    // patternTransform invalida todo <rect> preenchido com o pattern — eram
+    // três rects de 1600x1000, ou seja três repinturas de tela cheia a 60fps.
+    // A oscilação era de ~2 graus: imperceptível, e custava o hero inteiro.
 
-    const rotation = 'rotate(' + angle.toFixed(3) + ')';
-    for (const pattern of ribPatterns) {
-      pattern.setAttribute('patternTransform', rotation);
-    }
-    if (pulseLayer) pulseLayer.setAttribute('transform', rotation);
-
-    // ---- realce especular acompanha o ponteiro
-    if (litSpot) {
-      litSpot.setAttribute('cx', smooth.vx.toFixed(1));
-      litSpot.setAttribute('cy', smooth.vy.toFixed(1));
-    }
-    if (litLayer) {
-      litLayer.setAttribute('opacity', (0.34 + smooth.glow * 0.5).toFixed(3));
+    // ---- realce especular: mexer em litSpot recalcula <mask id="litMask">
+    // e repinta o rect mascarado de tela cheia. Limitado a ~12fps e só
+    // quando de fato mudou de lugar.
+    if (litSpot && now - lastLit > 80) {
+      const nx = smooth.vx, ny = smooth.vy;
+      if (Math.abs(nx - litAt.x) > 6 || Math.abs(ny - litAt.y) > 6) {
+        litSpot.setAttribute('cx', nx.toFixed(0));
+        litSpot.setAttribute('cy', ny.toFixed(0));
+        litAt.x = nx; litAt.y = ny;
+      }
+      if (litLayer) {
+        const op = 0.34 + smooth.glow * 0.5;
+        if (Math.abs(op - litOp) > 0.02) {
+          litLayer.setAttribute('opacity', op.toFixed(2));
+          litOp = op;
+        }
+      }
+      lastLit = now;
     }
 
     rafId = requestAnimationFrame(frame);
@@ -134,6 +140,11 @@
     rafId = null;
     hero.classList.remove('is-animating');
   }
+
+  // Inclinação das ripas: aplicada UMA vez, não por quadro.
+  const fixedRotation = 'rotate(' + BASE_ANGLE + ')';
+  for (const pattern of ribPatterns) pattern.setAttribute('patternTransform', fixedRotation);
+  if (pulseLayer) pulseLayer.setAttribute('transform', fixedRotation);
 
   // ------------------------------------------- feixes com cadência irregular
   function scheduleBeam(el, baseDuration) {

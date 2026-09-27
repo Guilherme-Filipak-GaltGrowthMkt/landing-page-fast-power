@@ -286,12 +286,18 @@ svg { display: block; }
 }
 .hero__bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .hero__svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+/* grão do hero: o mesmo data URI do resto do site, no lugar do feTurbulence
+   de tela cheia que era calculado durante o carregamento. */
+.hero__grain {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: var(--grain); opacity: .13;
+}
 .hero__svg .light-drift { animation: drift 22s ease-in-out infinite; }
 @keyframes drift { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-70px, 30px) scale(1.07); } }
 .hero__svg .core-drift { animation: coreDrift 16s ease-in-out infinite; }
 @keyframes coreDrift { 0%, 100% { transform: translate(0, 0); opacity: .85; } 50% { transform: translate(48px, -18px); opacity: 1; } }
-.hero__svg .bloom-breathe { animation: bloom 9s ease-in-out infinite; }
-@keyframes bloom { 0%, 100% { opacity: .30; } 50% { opacity: .52; } }
+.hero__svg .bloom-breathe { animation: bloom 19s ease-in-out infinite; }
+@keyframes bloom { 0%, 100% { opacity: .34; } 50% { opacity: .46; } }
 
 .hero__layer { position: absolute; inset: 0; }
 .hero__layer--aurora { transform: translate3d(calc(var(--mx, 0) * -34px), calc(var(--my, 0) * -22px), 0); }
@@ -302,9 +308,14 @@ svg { display: block; }
     rgba(201, 39, 58, 0) 0deg, rgba(255, 74, 94, 0.55) 48deg, rgba(255, 140, 155, 0.30) 92deg,
     rgba(116, 22, 54, 0) 150deg, rgba(201, 39, 58, 0) 215deg, rgba(255, 113, 131, 0.48) 285deg,
     rgba(156, 29, 58, 0.18) 325deg, rgba(201, 39, 58, 0) 360deg);
-  filter: blur(80px); mix-blend-mode: screen; opacity: 0.62;
-  transform: rotate(var(--spin, 0deg));
+  /* blur menor e sem mix-blend-mode: screen impedia o cache da camada, então
+     os 80px de raio eram refeitos a cada quadro junto com a rotação. */
+  filter: blur(56px);
+  opacity: 0.5;
+  will-change: transform;
+  animation: auroraSpin 150s linear infinite;
 }
+@keyframes auroraSpin { to { transform: rotate(360deg); } }
 .hero__beam { position: absolute; top: -60%; height: 220%; filter: blur(30px); mix-blend-mode: screen; opacity: 0; transform: translateX(-32vw) rotate(11deg); }
 .hero__beam--1 { width: 440px; background: linear-gradient(90deg, rgba(201, 39, 58, 0) 0%, rgba(233, 70, 91, 0.30) 32%, rgba(255, 186, 198, 0.42) 50%, rgba(233, 70, 91, 0.30) 68%, rgba(201, 39, 58, 0) 100%); }
 .hero__beam--2 { width: 260px; background: linear-gradient(90deg, rgba(156, 29, 58, 0) 0%, rgba(255, 120, 140, 0.34) 50%, rgba(156, 29, 58, 0) 100%); }
@@ -312,8 +323,13 @@ svg { display: block; }
   position: absolute; left: 25%; bottom: -34%; width: 78%; height: 62%;
   background: radial-gradient(ellipse at 50% 100%, rgba(255, 74, 94, 0.55) 0%, rgba(201, 39, 58, 0.34) 35%, rgba(116, 22, 54, 0.14) 62%, rgba(116, 22, 54, 0) 100%);
   filter: blur(46px);
-  opacity: var(--glow-pulse, 0.8);
-  transform: scale(calc(1 + (var(--glow-pulse, 0.8) - 0.78) * 0.5));
+  opacity: 0.82;
+  will-change: transform, opacity;
+  animation: glowBreathe 17s ease-in-out infinite;
+}
+@keyframes glowBreathe {
+  0%, 100% { opacity: 0.74; transform: scale(0.98); }
+  50%      { opacity: 0.88; transform: scale(1.03); }
 }
 .hero__scrim {
   position: absolute; inset: 0;
@@ -815,6 +831,7 @@ html.nomotion .hero__title, html.nomotion .hero__subtitle, html.nomotion .signal
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   .hero__beam { display: none; }
+  .hero__aurora, .hero__glow-bottom { animation: none; }
   .hero__aurora { transform: rotate(18deg); }
   .hero__glow-bottom { opacity: 0.8; transform: none; }
   .hero__layer { transform: none; }

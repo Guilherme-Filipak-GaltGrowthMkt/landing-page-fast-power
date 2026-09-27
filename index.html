@@ -108,6 +108,13 @@
             <stop offset="0.92" stop-color="#5A1129" stop-opacity="0.14"/>
             <stop offset="1.00" stop-color="#3d0c1c" stop-opacity="0"/>
           </radialGradient>
+          <radialGradient id="bloomSoft" cx="50%" cy="50%" r="50%">
+            <stop offset="0.00" stop-color="#F4566B" stop-opacity="0.95"/>
+            <stop offset="0.30" stop-color="#F4566B" stop-opacity="0.62"/>
+            <stop offset="0.56" stop-color="#E3465B" stop-opacity="0.28"/>
+            <stop offset="0.78" stop-color="#C9273A" stop-opacity="0.08"/>
+            <stop offset="1.00" stop-color="#C9273A" stop-opacity="0"/>
+          </radialGradient>
           <radialGradient id="hotCore" cx="50%" cy="50%" r="50%">
             <stop offset="0.00" stop-color="#FF8A97" stop-opacity="0.85"/>
             <stop offset="0.45" stop-color="#E3465B" stop-opacity="0.35"/>
@@ -134,11 +141,6 @@
             <stop offset="0.70" stop-color="#FF96AA" stop-opacity="0.55"/>
             <stop offset="1.00" stop-color="#FF96AA" stop-opacity="0"/>
           </linearGradient>
-          <filter id="grain" x="0" y="0" width="100%" height="100%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" result="noise"/>
-            <feColorMatrix in="noise" type="saturate" values="0"/>
-          </filter>
-          <filter id="bigBlur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="55"/></filter>
         </defs>
 
         <rect width="1600" height="1000" fill="#0a0508"/>
@@ -164,14 +166,15 @@
         <rect width="1600" height="1000" fill="url(#flute)"/>
         <rect width="1600" height="1000" fill="url(#macroWave)"/>
         <rect width="1600" height="1000" fill="url(#litFlute)" mask="url(#litMask)" id="litLayer" opacity="0.5"/>
-        <ellipse class="bloom-breathe" cx="1090" cy="230" rx="380" ry="250" fill="#F4566B" filter="url(#bigBlur)"/>
+        <ellipse class="bloom-breathe" cx="1090" cy="230" rx="560" ry="390" fill="url(#bloomSoft)"/>
         <g id="pulseLayer"></g>
         <rect width="1600" height="1000" fill="url(#perf)" mask="url(#perfMask)"/>
         <rect width="1600" height="1000" fill="url(#topFall)"/>
         <rect width="1600" height="1000" fill="url(#vignette)"/>
-        <rect width="1600" height="1000" filter="url(#grain)" opacity="0.13"/>
+        
       </svg>
 
+      <div class="hero__grain" aria-hidden="true"></div>
       <div class="hero__layer hero__layer--aurora"><div class="hero__aurora"></div></div>
       <div class="hero__beam hero__beam--1"></div>
       <div class="hero__beam hero__beam--2"></div>
