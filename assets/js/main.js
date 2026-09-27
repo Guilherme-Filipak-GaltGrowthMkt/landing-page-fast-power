@@ -58,15 +58,33 @@
   // A luz arrasta atrás do cursor (inércia), como no Hero. Sem cursor fino,
   // ela responde à posição do card na tela: desce conforme o card sobe.
   const lit = Array.from(document.querySelectorAll('[data-light]'));
-  const state = lit.map((el) => ({ el, x: 50, y: 0, tx: 50, ty: 0, hot: false }));
+  const state = lit.map((el) => ({ el, x: 50, y: 0, tx: 50, ty: 0, hot: false, near: false }));
   let rafId = null;
+
+  // Só os cards perto da viewport recebem escrita de --lx/--ly. Sem isso o
+  // loop repinta o gradiente dos 21 de uma vez, a cada quadro, durante todo
+  // o scroll — e vários deles ficam atrás de backdrop-filter.
+  if (window.IntersectionObserver) {
+    const nio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        const s = state.find((st) => st.el === e.target);
+        if (s) s.near = e.isIntersecting;
+      });
+    }, { rootMargin: '25% 0px 25% 0px' });
+    state.forEach((s) => nio.observe(s.el));
+  } else {
+    state.forEach((s) => { s.near = true; });
+  }
 
   function loop() {
     let moving = false;
     for (const s of state) {
-      s.x += (s.tx - s.x) * 0.09;
-      s.y += (s.ty - s.y) * 0.09;
-      if (Math.abs(s.tx - s.x) > 0.05 || Math.abs(s.ty - s.y) > 0.05) moving = true;
+      const dx = s.tx - s.x, dy = s.ty - s.y;
+      if (Math.abs(dx) < 0.05 && Math.abs(dy) < 0.05) continue;
+      s.x += dx * 0.09;
+      s.y += dy * 0.09;
+      moving = true;
+      if (!s.near) continue;
       s.el.style.setProperty('--lx', s.x.toFixed(2) + '%');
       s.el.style.setProperty('--ly', s.y.toFixed(2) + '%');
     }
@@ -137,6 +155,8 @@
     let hover = false;
     let last = performance.now();
     let width = tracks[0].getBoundingClientRect().width;
+    let running = false;
+    let visible = true;
     window.addEventListener('resize', () => { width = tracks[0].getBoundingClientRect().width; });
     marquee.addEventListener('pointerenter', () => { hover = true; });
     marquee.addEventListener('pointerleave', () => { hover = false; });
@@ -144,6 +164,7 @@
     const drift = (t) => Math.sin(t * 0.113) * 0.22 + Math.sin(t * 0.047) * 0.12 + Math.sin(t * 0.019) * 0.06;
 
     const step = (now) => {
+      if (!running) return;
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
       const t = now / 1000;
@@ -151,10 +172,37 @@
       const speed = 42 * (1 + drift(t)) * speedScale;   // px/s
       x -= speed * dt;
       if (width > 0 && -x >= width) x += width;
-      for (const tr of tracks) tr.style.setProperty('--marquee-x', x.toFixed(2) + 'px');
+      // transform direto: mexer na custom property forçava recálculo de
+      // estilo nos 24 <img> de dentro a cada quadro.
+      for (const tr of tracks) tr.style.transform = 'translateX(' + x.toFixed(2) + 'px)';
       requestAnimationFrame(step);
     };
-    requestAnimationFrame(step);
+
+    const play = () => {
+      if (running || !visible || document.hidden) return;
+      running = true;
+      last = performance.now();
+      if (width <= 0) width = tracks[0].getBoundingClientRect().width;
+      for (const tr of tracks) tr.style.willChange = 'transform';
+      requestAnimationFrame(step);
+    };
+    const pause = () => {
+      running = false;
+      for (const tr of tracks) tr.style.willChange = '';
+    };
+
+    // Só anima com a dobra de clientes por perto e a aba em primeiro plano.
+    if (window.IntersectionObserver) {
+      new IntersectionObserver(([e]) => {
+        visible = e.isIntersecting;
+        visible ? play() : pause();
+      }, { rootMargin: '20% 0px 20% 0px' }).observe(marquee);
+    } else {
+      play();
+    }
+    document.addEventListener('visibilitychange', () => {
+      document.hidden ? pause() : play();
+    });
   }
 
 })();

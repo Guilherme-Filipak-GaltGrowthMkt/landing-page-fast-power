@@ -95,7 +95,7 @@
     const spin = t * 9 + drift(t, 0.061, 0.027, 0.011, 1.2) * 34;
     s.setProperty('--spin', spin.toFixed(2) + 'deg');
 
-    const pulse = 0.68 + (drift(t, 0.089, 0.037, 0.016, 3.6) + 1) * 0.18;
+    const pulse = 0.78 + (drift(t, 0.089, 0.037, 0.016, 3.6) + 1) * 0.07;
     s.setProperty('--glow-pulse', pulse.toFixed(3));
 
     // ---- as próprias linhas reagem: o ângulo inclina de leve na direção
@@ -137,7 +137,7 @@
 
   // ------------------------------------------- feixes com cadência irregular
   function scheduleBeam(el, baseDuration) {
-    const gap = 900 + Math.random() * 5600;
+    const gap = 5200 + Math.random() * 9000;
 
     setTimeout(() => {
       if (reduceMotion.matches) return;
@@ -146,9 +146,9 @@
         return;
       }
 
-      const duration = baseDuration * (0.7 + Math.random() * 0.75);
+      const duration = baseDuration * (0.9 + Math.random() * 0.75);
       const angle = BASE_ANGLE + (Math.random() * 2 - 1) * 5;
-      const peak = 0.55 + Math.random() * 0.45;
+      const peak = 0.24 + Math.random() * 0.20;
 
       const animation = el.animate(
         [
@@ -171,7 +171,7 @@
   function firePulse() {
     if (reduceMotion.matches || !pulseLayer) return;
 
-    const nextIn = 420 + Math.random() * 2100;
+    const nextIn = 1400 + Math.random() * 3200;
 
     if (!onScreen || document.hidden) {
       setTimeout(firePulse, nextIn);
@@ -195,7 +195,7 @@
     pulseLayer.appendChild(rect);
 
     const duration = 1100 + Math.random() * 1700;
-    const peak = 0.4 + Math.random() * 0.5;
+    const peak = 0.22 + Math.random() * 0.26;
 
     const animation = rect.animate(
       [
@@ -229,7 +229,7 @@
       onScreen = entry.isIntersecting;
       onScreen && !document.hidden ? start() : stop();
     },
-    { threshold: 0 }
+    { threshold: 0, rootMargin: '120px 0px 120px 0px' }
   );
   observer.observe(hero);
 
