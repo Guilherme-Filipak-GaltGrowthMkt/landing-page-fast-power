@@ -95,8 +95,6 @@
     s.setProperty('--mx', smooth.x.toFixed(4));
     s.setProperty('--my', smooth.y.toFixed(4));
 
-    const pulse = 0.78 + (drift(t, 0.089, 0.037, 0.016, 3.6) + 1) * 0.07;
-    s.setProperty('--glow-pulse', pulse.toFixed(3));
 
     // ---- as próprias linhas reagem: o ângulo inclina de leve na direção
     // do cursor, mais uma oscilação orgânica. Amplitude pequena de propósito.
