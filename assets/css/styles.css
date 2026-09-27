@@ -648,7 +648,7 @@ svg { display: block; }
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
-.marquee__track { display: flex; flex-shrink: 0; gap: 14px; padding-right: 14px; transform: translateX(var(--marquee-x, 0)); }
+.marquee__track { display: flex; flex-shrink: 0; gap: 18px; padding-right: 18px; align-items: center; transform: translateX(var(--marquee-x, 0)); }
 .marquee__item {
   white-space: nowrap; font-size: 16px; font-weight: 600; font-variation-settings: "wdth" 104; letter-spacing: -0.005em;
   color: rgba(43, 43, 43, 0.62);
@@ -658,6 +658,36 @@ svg { display: block; }
   transition: color .3s, background .3s, transform .4s var(--ease-out);
 }
 .marquee__item:hover { color: var(--color-primary-deep); background: #fff; transform: translateY(-3px); }
+
+/* logos dos clientes — disco branco, anel discreto herdado do portfólio */
+.marquee__logo {
+  flex-shrink: 0;
+  width: 152px; height: 152px; padding: 0;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid rgba(201, 39, 58, 0.42);
+  box-shadow: 0 14px 30px -18px rgba(43, 43, 43, 0.5);
+  transition: transform .45s var(--ease-out), box-shadow .45s var(--ease-out), border-color .3s;
+}
+.marquee__logo img {
+  width: 104px; height: 84px; object-fit: contain;
+  /* leve recuo de saturação para as 12 marcas conviverem sem brigar */
+  filter: saturate(.92);
+}
+.marquee__logo:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 39, 58, 0.55);
+  box-shadow: 0 22px 40px -20px rgba(201, 39, 58, 0.55);
+}
+.marquee__logo:hover img { filter: none; }
+
+.clients__more {
+  margin: 26px auto 0; max-width: 720px; text-align: center;
+  font-size: 15px; line-height: 1.65; color: rgba(43, 43, 43, 0.62);
+}
+.clients__more b { font-weight: 600; font-variation-settings: "wdth" 104; color: rgba(43, 43, 43, 0.86); }
+
 
 /* ==========================================================================
    8ª dobra — Formulário final
@@ -771,6 +801,9 @@ svg { display: block; }
   .case__scope ul { grid-template-columns: 1fr; }
 
   .marquee__item { font-size: 14.5px; padding: 12px 18px; }
+  .marquee__logo { width: 118px; height: 118px; padding: 0; }
+  .marquee__logo img { width: 80px; height: 65px; }
+  .clients__more { font-size: 14px; }
 }
 
 /* captura de verificação: ?nomotion congela as entradas no estado final */
